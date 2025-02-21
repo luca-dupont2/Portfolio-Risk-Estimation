@@ -42,10 +42,14 @@ This project is a **Streamlit** application designed to estimate portfolio risk 
     ```bash
     python api_setup.py
     ```
+    or
+   ```bash
+    python3 api_setup.py
+    ```
     *Enter FRED API key as prompted*
 
     Get API key at [FRED](https://fredaccount.stlouisfed.org/apikeys)
-4. Run the application:
+5. Run the application:
     ```bash
     streamlit run app.py
     ```
