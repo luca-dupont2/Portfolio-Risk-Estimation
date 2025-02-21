@@ -37,10 +37,20 @@ This project is a **Streamlit** application designed to estimate portfolio risk 
     ```bash
     pip install -r requirements.txt
     ```
-3. Run the application:
+3. (Optionally), Add API key to use interest rate shock:
+
+    ```bash
+    python api_setup.py
+    ```
+    *Enter FRED API key as prompted*
+
+    Get API key at [FRED](https://fredaccount.stlouisfed.org/apikeys)
+4. Run the application:
     ```bash
     streamlit run app.py
     ```
+
+
 
 ## Usage
 
