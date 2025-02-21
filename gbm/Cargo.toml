@@ -1,0 +1,15 @@
+[package]
+name = "gbm"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "gbm"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.23.4", features = ["extension-module"] }
+numpy = "0.23.0" 
+rayon = "1.10"
+rand = "0.9.0"
+rand_distr = "0.5.1"

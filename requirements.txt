@@ -1,0 +1,9 @@
+numpy
+yfinance
+pandas
+streamlit
+requests
+python-dotenv
+python-dateutil
+matplotlib
+-e gbm
