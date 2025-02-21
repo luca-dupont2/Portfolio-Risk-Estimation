@@ -33,6 +33,10 @@ def check_wifi_connection() -> bool:
         return False
 
 
+def check_api_key() -> bool :
+    return os.path.isfile(".env")
+
+
 def get_monthly_bank_rates_fred(years: int) -> pd.DataFrame:
     """
     Fetch monthly bank rates from the FRED API for a specified number of years.

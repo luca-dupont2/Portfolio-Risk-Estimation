@@ -32,6 +32,11 @@ def main():
     SHOCK_SYMBOLS, SHOCK_NAMES = SHOCKS["Symbol"], SHOCKS["Contract Name"]
 
     WIFI = check_wifi_connection()
+    API = check_api_key()
+
+    if not API :
+        SHOCK_SYMBOLS.drop("IR")
+        SHOCK_NAMES.drop("Interest rate")
 
     # ---------------- Streamlit UI ---------------- #
     st.title("Portfolio Risk Estimation")
