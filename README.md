@@ -20,7 +20,6 @@ This project is a **Streamlit** application designed to estimate portfolio risk 
 -   Streamlit
 -   NumPy
 -   Pandas
--   Matplotlib
 -   YFinance
 -   Requests
 -   Python-dotenv
