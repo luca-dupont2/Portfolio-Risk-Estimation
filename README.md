@@ -6,7 +6,7 @@ This project is a **Streamlit** application designed to estimate portfolio risk 
 
 ## Features
 
--   **Dynamic Ticker Selection**: Users can search and select multiple assets from a predefined list.
+-   **Dynamic Ticker Selection**: Users can search and select multiple assets from most available large Yahoo Finance tickers.
 -   **Market Shock Analysis**: Users can introduce custom shocks to assess portfolio resilience.
 -   **Monte Carlo Simulation**: Simulates thousands of future portfolio paths based on historical log returns and volatility.
 -   **Risk Metrics**: Computes **VaR** and **CVaR** for different time horizons.
