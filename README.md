@@ -30,7 +30,7 @@ This project is a **Streamlit** application designed to estimate portfolio risk 
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-repo/portfolio-risk-estimation.git
+    git clone https://github.com/luca-dupont2/Portfolio-Risk-Estimation.git
     cd portfolio-risk-estimation
     ```
 2. Install dependencies:
