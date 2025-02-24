@@ -178,8 +178,9 @@ def main():
                 last_shock_values,
                 N_SIMS,
             )
-            future_values = np.vstack((shock_future_values, future_values))
+            future_values = np.concat((shock_future_values, future_values), axis=1)
             t += duration/YEARLY_TRADING_DAYS
+            t = np.concat((shock_t, t))
         else :
             t, future_values = gbm(
                 TIME_HORIZON,

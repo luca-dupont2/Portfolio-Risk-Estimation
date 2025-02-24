@@ -271,7 +271,7 @@ def gbm(
         Tuple[np.ndarray, np.ndarray]: Time vector, and all simulated paths.
     """
     if type(S0) != float :
-        S0 = np.asarray(S0) 
+        S0 = np.asarray(S0)[:, np.newaxis]
 
     dt = T / N
     t = np.linspace(0, T, N + 1)  # Ensure time vector aligns with simulated paths
@@ -285,7 +285,7 @@ def gbm(
     W_t = np.hstack((np.zeros((n_sims, 1)), W_t))  # Ensure W_0 = 0
 
     # Compute GBM paths
-    S_t = S0[:, np.newaxis] * np.exp((mu - 0.5 * sigma**2) * t + sigma * W_t)
+    S_t = S0 * np.exp((mu - 0.5 * sigma**2) * t + sigma * W_t)
 
     return t, S_t
 
