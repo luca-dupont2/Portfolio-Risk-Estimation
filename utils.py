@@ -10,11 +10,15 @@ from dateutil.relativedelta import relativedelta
 from typing import Optional, List, Tuple, Union
 
 # Load environment variables from .env file
-load_dotenv()
+if os.path.isfile(".env"):
+    load_dotenv()
+    FRED_API_KEY = os.getenv("FRED_API_KEY")
+else :
+    FRED_API_KEY = None
+
 
 # Constants
 PERIOD_MAP = {"3mo": 0.25, "6mo": 0.5, "1y": 1, "2y": 2, "5y": 5}
-FRED_API_KEY = os.getenv("FRED_API_KEY")
 
 
 def check_wifi_connection() -> bool:
@@ -50,6 +54,9 @@ def get_monthly_bank_rates_fred(years: int) -> pd.DataFrame:
     Raises:
         ValueError: If the FRED API request fails.
     """
+    if not FRED_API_KEY :
+        raise ValueError("FRED API key not found")
+
     now = datetime.now()
     then = (now - relativedelta(years=years)).strftime("%Y-%m-%d")
     now_str = now.strftime("%Y-%m-%d")
