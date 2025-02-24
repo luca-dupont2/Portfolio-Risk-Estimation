@@ -113,7 +113,8 @@ def main():
         magnitude = shock_data
 
         if shock == "EM" :
-            return_changes.append(FEAR_FACTOR*magnitude)
+            return_changes.append(magnitude)
+            volatility_changes.append(FEAR_FACTOR*magnitude)
 
 
     # Sidebar Header
@@ -216,7 +217,7 @@ def main():
 
         # --- Monte Carlo Simulation Plot --- #
         st.subheader("Monte Carlo Simulation")
-        fig, ax = plt.subplots(figsize=(10, 5))
+        fig, _ = plt.subplots(figsize=(10, 5))
         plt.plot(t, np.array(future_values[:RENDERED_SIMS]).T, alpha=0.3)  # Plot fewer lines
         plt.axhline(
             y=initial_portfolio_value,
