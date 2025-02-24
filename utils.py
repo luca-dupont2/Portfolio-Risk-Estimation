@@ -291,3 +291,9 @@ def gbm(
 
 def sample_values(values : np.ndarray, start : int, stop : int) -> np.ndarray :
     return [st[start:stop] for st in values]
+
+def annualize_return(init_return : float, period : int) -> float :
+    return (1 + init_return) ** 252/period - 1
+
+def annualize_std(init_std : float, period : int) -> float :
+    return init_std * np.sqrt(252/period)

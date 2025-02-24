@@ -113,8 +113,8 @@ def main():
         magnitude = shock_data
 
         if shock == "EM" :
-            return_changes.append(magnitude)
-            volatility_changes.append(FEAR_FACTOR*abs(magnitude))
+            return_changes.append(annualize_return(magnitude))
+            volatility_changes.append(annualize_std(FEAR_FACTOR*abs(magnitude)))
 
 
     # Sidebar Header
