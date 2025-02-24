@@ -32,7 +32,7 @@ def main():
     API = check_api_key()
 
     if not API :
-        SHOCK_SYMBOLS.drop(1)
+        SHOCKS.drop(1)
 
     TICKER_SYMBOLS, TICKER_NAMES = TICKERS["Symbol"], TICKERS["Contract Name"]
     SHOCK_SYMBOLS, SHOCK_NAMES = SHOCKS["Symbol"], SHOCKS["Contract Name"]
@@ -158,32 +158,40 @@ def main():
         portfolio_return = weighted_average(annualized_pct_returns, values)
         portfolio_std = weighted_average(annualized_pct_stds, values)
 
-        # --- Monte Carlo Simulation --- #
-        shock_t, shock_future_values = gbm(
-            duration/YEARLY_TRADING_DAYS,
-            duration,
-            portfolio_return+sum(return_changes),
-            portfolio_std+sum(volatility_changes),
-            initial_portfolio_value,
-            N_SIMS,
-        )
+        if shock_values :
+            # --- Monte Carlo Simulation --- #
+            shock_t, shock_future_values = gbm(
+                duration/YEARLY_TRADING_DAYS,
+                duration,
+                portfolio_return+sum(return_changes),
+                portfolio_std+sum(volatility_changes),
+                initial_portfolio_value,
+                N_SIMS,
+            )
 
-        last_shock_values = [s[-1] for s in shock_future_values]
+            last_shock_values = [s[-1] for s in shock_future_values]
 
-        t, future_values = gbm(
-            TIME_HORIZON - duration/YEARLY_TRADING_DAYS,
-            YEARLY_TRADING_DAYS-duration,
-            portfolio_return,
-            portfolio_std,
-            last_shock_values,
-            N_SIMS,
-        )
-
-        future_values = np.vstack((shock_future_values, future_values))
+            t, future_values = gbm(
+                TIME_HORIZON - duration/YEARLY_TRADING_DAYS,
+                YEARLY_TRADING_DAYS-duration,
+                portfolio_return,
+                portfolio_std,
+                last_shock_values,
+                N_SIMS,
+            )
+            future_values = np.vstack((shock_future_values, future_values))
+            t += duration/YEARLY_TRADING_DAYS
+        else :
+            t, future_values = gbm(
+                TIME_HORIZON,
+                YEARLY_TRADING_DAYS,
+                portfolio_return,
+                portfolio_std,
+                initial_portfolio_value,
+                N_SIMS,
+            )
 
         sample = sample_values(future_values, sample_start_days, sample_stop_days)
-
-        t += duration/YEARLY_TRADING_DAYS
 
         profits_sample = np.asarray(sorted([i[-1] - i[0] for i in sample]))
         final_values_total = np.asarray([i[-1] for i in future_values])
@@ -249,7 +257,7 @@ def main():
             fig2, ax2 = plt.subplots(figsize=(10, 5))
             ax2.hist(
                 pre_var_sample,
-                bins=10,
+                bins=12,
                 color="red",
                 alpha=0.7,
                 edgecolor="black",
