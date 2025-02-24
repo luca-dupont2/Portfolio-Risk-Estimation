@@ -13,7 +13,7 @@ TIME_HORIZON = 1
 N_SIMS = 50_000
 RENDERED_SIMS = 500
 VAR_PERCENTILE = 5
-FEAR_FACTOR = 3
+FEAR_FACTOR = 2
 IR_INDEX = 1
 
 
@@ -32,7 +32,7 @@ def main():
     API = check_api_key()
 
     if not API :
-        SHOCKS = SHOCKS.drop(1)
+        SHOCKS = SHOCKS.drop(IR_INDEX)
 
     TICKER_SYMBOLS, TICKER_NAMES = TICKERS["Symbol"], TICKERS["Contract Name"]
     SHOCK_SYMBOLS, SHOCK_NAMES = SHOCKS["Symbol"], SHOCKS["Contract Name"]
@@ -114,7 +114,7 @@ def main():
 
         if shock == "EM" :
             return_changes.append(magnitude)
-            volatility_changes.append(FEAR_FACTOR*magnitude)
+            volatility_changes.append(FEAR_FACTOR*abs(magnitude))
 
 
     # Sidebar Header
