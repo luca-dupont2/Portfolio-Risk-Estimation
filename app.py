@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from utils import *
 import pandas as pd
-from gbm import compute_gbm
 
 
 # TODO! IMPLEMENT MARKET SHOCKS, ANALYSE VS BASELINE, ANALYSE WHICH PART OF PORTFOLIO IS WEAK
@@ -14,6 +13,7 @@ TIME_HORIZON = 1
 N_SIMS = 50_000
 RENDERED_SIMS = 500
 VAR_PERCENTILE = 5
+FEAR_FACTOR = 3
 
 
 @st.cache_data
@@ -82,6 +82,14 @@ def main():
         format_func=lambda x: f"{x} - {SHOCK_NAMES[SHOCK_SYMBOLS == x].values[0]}",
         help="Search and select market shocks",
     )
+    duration = None
+    return_changes = []
+    volatility_changes = []
+
+    if selected_shocks :
+        duration = st.number_input(
+            "Duration (days)", value=10, step=1, key=f"{shock}D"
+        )
 
     # Input for corresponding shock values (dynamic)
     shock_values = {}
@@ -95,13 +103,17 @@ def main():
             magnitude = st.number_input(
                 "Magnitude (%)", value=0.1, step=0.01, key=f"{shock}M"
             )
-            shock_data[0] = magnitude
-        with col2:
-            duration = st.number_input(
-                "Duration (days)", value=10, step=1, key=f"{shock}D"
-            )
-            shock_data[1] = duration
-        shock_values[shock] = shock_data
+            magnitude /= 100
+            shock_values[shock] = magnitude
+
+    for shock in shock_values :
+        shock_data = shock_values[shock]
+
+        magnitude = shock_data
+
+        if shock == "EM" :
+            return_changes.append(FEAR_FACTOR*magnitude)
+
 
     # Sidebar Header
     st.sidebar.subheader("Select Sample Time Horizon for metrics (VaR, CVaR)")
@@ -145,16 +157,28 @@ def main():
         portfolio_std = weighted_average(annualized_pct_stds, values)
 
         # --- Monte Carlo Simulation --- #
-        t, sample, future_values = compute_gbm(
-            TIME_HORIZON,
-            YEARLY_TRADING_DAYS,
-            portfolio_return,
-            portfolio_std,
+        shock_t, shock_future_values = gbm(
+            duration/YEARLY_TRADING_DAYS,
+            duration,
+            portfolio_return+sum(return_changes),
+            portfolio_std+sum(volatility_changes),
             initial_portfolio_value,
             N_SIMS,
-            sample_start_days,
-            sample_stop_days,
         )
+
+        last_shock_values = [s[-1] for s in shock_future_values]
+
+        t, future_values = gbm(
+            TIME_HORIZON - duration/YEARLY_TRADING_DAYS,
+            YEARLY_TRADING_DAYS-duration,
+            portfolio_return,
+            portfolio_std,
+            last_shock_values,
+            N_SIMS,
+        )
+        t += duration/YEARLY_TRADING_DAYS
+
+        
 
         profits_sample = np.asarray(sorted([i[-1] - i[0] for i in sample]))
         final_values_total = np.asarray([i[-1] for i in future_values])

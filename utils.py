@@ -240,3 +240,47 @@ def get_es(pre_var: np.ndarray) -> float:
         float: Expected Shortfall.
     """
     return -np.mean(pre_var)
+
+def gbm(
+    T: float,
+    N: int,
+    mu: float,
+    sigma: float,
+    S0: float | List[float],
+    n_sims: int = 1,
+) -> Tuple[np.ndarray, List[np.ndarray], np.ndarray]:
+    """
+    Vectorized Geometric Brownian Motion simulation.
+
+    Args:
+        T (float): Total time.
+        N (int): Number of time steps.
+        mu (float): Drift coefficient.
+        sigma (float): Volatility coefficient.
+        S0 (float | List[float]): Initial stock price.
+        n_sims (int): Number of simulations.
+
+    Returns:
+        Tuple[np.ndarray, np.ndarray]: Time vector, and all simulated paths.
+    """
+    if type(S0) != float :
+        S0 = np.asarray(S0) 
+
+    dt = T / N
+    t = np.linspace(0, T, N + 1)  # Ensure time vector aligns with simulated paths
+
+    # Generate Brownian motion increments
+    epsilon = np.random.normal(0, 1, (n_sims, N))
+    dW = epsilon * np.sqrt(dt)
+
+    # Compute cumulative Brownian motion
+    W_t = np.cumsum(dW, axis=1)
+    W_t = np.hstack((np.zeros((n_sims, 1)), W_t))  # Ensure W_0 = 0
+
+    # Compute GBM paths
+    S_t = S0 * np.exp((mu - 0.5 * sigma**2) * t + sigma * W_t)
+
+    return t, S_t
+
+def sample(values : np.ndarray, start : int, stop : int) -> np.ndarray :
+    return [st[start:stop] for st in values]
