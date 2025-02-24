@@ -282,5 +282,5 @@ def gbm(
 
     return t, S_t
 
-def sample(values : np.ndarray, start : int, stop : int) -> np.ndarray :
+def sample_values(values : np.ndarray, start : int, stop : int) -> np.ndarray :
     return [st[start:stop] for st in values]

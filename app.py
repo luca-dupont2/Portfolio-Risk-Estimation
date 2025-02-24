@@ -176,9 +176,12 @@ def main():
             last_shock_values,
             N_SIMS,
         )
-        t += duration/YEARLY_TRADING_DAYS
 
-        
+        future_values = np.vstack((shock_future_values, future_values))
+
+        sample = sample_values(future_values, sample_start_days, sample_stop_days)
+
+        t += duration/YEARLY_TRADING_DAYS
 
         profits_sample = np.asarray(sorted([i[-1] - i[0] for i in sample]))
         final_values_total = np.asarray([i[-1] for i in future_values])
