@@ -14,6 +14,7 @@ N_SIMS = 50_000
 RENDERED_SIMS = 500
 VAR_PERCENTILE = 5
 FEAR_FACTOR = 3
+IR_INDEX = 1
 
 
 @st.cache_data
@@ -27,15 +28,16 @@ def main():
     TICKERS = pd.read_csv(TICKERS_FILE_PATH)
     SHOCKS = pd.read_csv(SHOCKS_FILE_PATH)
 
-    TICKER_SYMBOLS, TICKER_NAMES = TICKERS["Symbol"], TICKERS["Contract Name"]
-    SHOCK_SYMBOLS, SHOCK_NAMES = SHOCKS["Symbol"], SHOCKS["Contract Name"]
-
     WIFI = check_wifi_connection()
     API = check_api_key()
 
     if not API :
-        SHOCK_SYMBOLS.drop("IR")
-        SHOCK_NAMES.drop("Interest rate")
+        SHOCK_SYMBOLS.drop(1)
+
+    TICKER_SYMBOLS, TICKER_NAMES = TICKERS["Symbol"], TICKERS["Contract Name"]
+    SHOCK_SYMBOLS, SHOCK_NAMES = SHOCKS["Symbol"], SHOCKS["Contract Name"]
+
+
 
     # ---------------- Streamlit UI ---------------- #
     st.title("Portfolio Risk Estimation")
