@@ -38,7 +38,6 @@ def main():
     SHOCK_SYMBOLS, SHOCK_NAMES = SHOCKS["Symbol"], SHOCKS["Contract Name"]
 
 
-
     # ---------------- Streamlit UI ---------------- #
     st.title("Portfolio Risk Estimation")
 
@@ -89,8 +88,8 @@ def main():
     volatility_changes = []
 
     if selected_shocks :
-        duration = st.number_input(
-            "Duration (days)", value=10, step=1, key=f"{shock}D"
+        duration = st.sidebar.number_input(
+            "Duration (days)", value=10, step=1, min_value=0
         )
 
     # Input for corresponding shock values (dynamic)
@@ -103,7 +102,7 @@ def main():
         # Add number inputs to each column
         with col1:
             magnitude = st.number_input(
-                "Magnitude (%)", value=0.1, step=0.01, key=f"{shock}M"
+                "Magnitude (%)", value=0.1, step=0.01
             )
             magnitude /= 100
             shock_values[shock] = magnitude
