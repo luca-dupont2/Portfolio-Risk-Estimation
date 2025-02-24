@@ -32,7 +32,7 @@ def main():
     API = check_api_key()
 
     if not API :
-        SHOCKS.drop(1)
+        SHOCKS = SHOCKS.drop(1)
 
     TICKER_SYMBOLS, TICKER_NAMES = TICKERS["Symbol"], TICKERS["Contract Name"]
     SHOCK_SYMBOLS, SHOCK_NAMES = SHOCKS["Symbol"], SHOCKS["Contract Name"]
