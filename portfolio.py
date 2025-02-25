@@ -16,7 +16,7 @@ class Portfolio :
         self.initial_portfolio_value = sum(values)
 
         self.log_returns = None
-        self.log_std = None
+        self.log_stds = None
 
         self.annualized_pct_returns = None
         self.annualized_pct_stds = None
@@ -24,7 +24,6 @@ class Portfolio :
         self.portfolio_return = None
         self.portfolio_std = None
 
-    @st.cache_data
     def get_historical_data(self):
         """
         Fetch historical stock data from Yahoo Finance with caching.
@@ -48,7 +47,7 @@ class Portfolio :
             print(f"Error gathering stock data: {e}")
             self.data = None
 
-    def get_log_returns(data: pd.DataFrame) -> pd.DataFrame:
+    def get_log_returns(self) -> pd.DataFrame:
         """
         Calculate log returns for a given DataFrame of stock prices.
 
@@ -58,7 +57,7 @@ class Portfolio :
         Returns:
             pd.DataFrame: DataFrame containing the log returns.
         """
-        return np.log(data / data.shift(1)).dropna()
+        return np.log(self.data / self.data.shift(1)).dropna()
     
     def get_annualized_pct_returns(self):
         """
@@ -67,13 +66,13 @@ class Portfolio :
         Returns:
             np.ndarray: Array containing the annualized percentage returns.
         """
-        self.log_returns = self.get_log_returns(self.data)
+        self.log_returns = self.get_log_returns()
 
         annualized_pct_returns = self.log_returns.mean() * YEARLY_TRADING_DAYS
 
         self.annualized_pct_returns = annualized_pct_returns
 
-    def get_annualized_log_std(self):
+    def get_log_stds(self) -> pd.DataFrame:
         """
         Calculate the annualized log standard deviation for the portfolio.
 
@@ -81,11 +80,9 @@ class Portfolio :
             np.ndarray: Array containing the annualized log standard deviations.
         """
 
-        annualized_log_stds = self.log_returns.std() * np.sqrt(YEARLY_TRADING_DAYS)
-
-        self.log_std = annualized_log_stds
+        return self.log_returns.std()
     
-    def log_std_to_pct_std(self):
+    def get_annualized_pct_stds(self):
         """
         Convert log standard deviation to percentage standard deviation.
 
@@ -95,10 +92,12 @@ class Portfolio :
         Returns:
             float: Percentage standard deviation.
         """
-        if np.any(self.log_std == 0):
-            return 0.0  # No volatility means no percentage std deviation
         
-        self.annualized_pct_stds = np.sqrt(np.exp(self.log_std**2) - 1)
+        self.log_stds = self.get_log_stds()
+        
+        annualized_log_stds = self.log_stds * np.sqrt(YEARLY_TRADING_DAYS)
+        
+        self.annualized_pct_stds = np.sqrt(np.exp(annualized_log_stds**2) - 1)
 
     def get_portfolio_attributes(self) :
         """

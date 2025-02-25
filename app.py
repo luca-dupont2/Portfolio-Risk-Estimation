@@ -14,7 +14,7 @@ TIME_HORIZON = 1
 N_SIMS = 50_000
 RENDERED_SIMS = 500
 VAR_PERCENTILE = 5
-FEAR_FACTOR = 1
+FEAR_FACTOR = 0.5
 IR_INDEX = 1
 
 
@@ -27,12 +27,11 @@ def main():
     WIFI = check_wifi_connection()
     API = check_api_key()
 
-    if not API :
+    if not API:
         SHOCKS = SHOCKS.drop(IR_INDEX)
 
     TICKER_SYMBOLS, TICKER_NAMES = TICKERS["Symbol"], TICKERS["Contract Name"]
     SHOCK_SYMBOLS, SHOCK_NAMES = SHOCKS["Symbol"], SHOCKS["Contract Name"]
-
 
     # ---------------- Streamlit UI ---------------- #
     st.title("Portfolio Risk Estimation")
@@ -83,9 +82,13 @@ def main():
     return_changes = []
     volatility_changes = []
 
-    if selected_shocks :
+    if selected_shocks:
         shock_duration = st.sidebar.number_input(
-            "Duration (days)", value=10, step=1, min_value=0, max_value=YEARLY_TRADING_DAYS
+            "Duration (days)",
+            value=10,
+            step=1,
+            min_value=0,
+            max_value=YEARLY_TRADING_DAYS,
         )
 
     # Input for corresponding shock values (dynamic)
@@ -96,20 +99,18 @@ def main():
         col1, _ = st.sidebar.columns(2)
         # Add number inputs to each column
         with col1:
-            magnitude = st.number_input(
-                "Magnitude (%)", value=0.1, step=0.01
-            )
+            magnitude = st.number_input("Magnitude (%)", value=0.1, step=0.01)
             magnitude /= 100
             shock_values[shock] = magnitude
 
-    for shock in shock_values :
+    for shock in shock_values:
         magnitude = shock_values[shock]
 
-        if shock == "EM" :
+        if shock == "EM":
             return_changes.append(annualize_return(magnitude, shock_duration))
-            volatility_changes.append(annualize_std(FEAR_FACTOR*abs(magnitude), shock_duration))
-
-
+            volatility_changes.append(
+                annualize_std(FEAR_FACTOR * abs(magnitude), shock_duration)
+            )
 
     # Sidebar Header
     st.sidebar.subheader("Select Sample Time Horizon for metrics (VaR, CVaR)")
@@ -144,21 +145,22 @@ def main():
         portfolio.get_historical_data()
 
         portfolio.get_annualized_pct_returns()
-
-        portfolio.get_annualized_log_std()
-        portfolio.log_std_to_pct_std()
+        portfolio.get_annualized_pct_stds()
 
         portfolio.get_portfolio_attributes()
 
-        portfolio_return, portfolio_std = portfolio.portfolio_return, portfolio.portfolio_std
+        portfolio_return, portfolio_std = (
+            portfolio.portfolio_return,
+            portfolio.portfolio_std,
+        )
 
-        if shock_values :
+        if shock_values:
             # --- Monte Carlo Simulation --- #
             shock_t, shock_future_values = gbm(
-                shock_duration/YEARLY_TRADING_DAYS,
+                shock_duration / YEARLY_TRADING_DAYS,
                 shock_duration,
-                portfolio_return+sum(return_changes),
-                portfolio_std+sum(volatility_changes),
+                portfolio_return + sum(return_changes),
+                portfolio_std + sum(volatility_changes),
                 portfolio.initial_portfolio_value,
                 N_SIMS,
             )
@@ -166,7 +168,7 @@ def main():
             last_shock_values = [s[-1] for s in shock_future_values]
 
             t, future_values = gbm(
-                TIME_HORIZON - shock_duration/YEARLY_TRADING_DAYS,
+                TIME_HORIZON - shock_duration / YEARLY_TRADING_DAYS,
                 YEARLY_TRADING_DAYS - shock_duration,
                 portfolio_return,
                 portfolio_std,
@@ -174,9 +176,9 @@ def main():
                 N_SIMS,
             )
             future_values = np.concat((shock_future_values, future_values), axis=1)
-            t += shock_duration/YEARLY_TRADING_DAYS
+            t += shock_duration / YEARLY_TRADING_DAYS
             t = np.concat((shock_t, t))
-        else :
+        else:
             t, future_values = gbm(
                 TIME_HORIZON,
                 YEARLY_TRADING_DAYS,
@@ -212,7 +214,9 @@ def main():
         # --- Monte Carlo Simulation Plot --- #
         st.subheader("Monte Carlo Simulation")
         fig, _ = plt.subplots(figsize=(10, 5))
-        plt.plot(t, np.array(future_values[:RENDERED_SIMS]).T, alpha=0.3)  # Plot fewer lines
+        plt.plot(
+            t, np.array(future_values[:RENDERED_SIMS]).T, alpha=0.3
+        )  # Plot fewer lines
         plt.axhline(
             y=portfolio.initial_portfolio_value,
             color="purple",
@@ -248,7 +252,9 @@ def main():
 
         # --- VaR and CVaR Histogram --- #
         with col2:
-            st.subheader(f"VaR and CVaR Analysis ({time_unit} {sample_start}-{sample_stop})")
+            st.subheader(
+                f"VaR and CVaR Analysis ({time_unit} {sample_start}-{sample_stop})"
+            )
             fig2, ax2 = plt.subplots(figsize=(10, 5))
             ax2.hist(
                 pre_var_sample,
