@@ -83,13 +83,13 @@ def main():
         format_func=lambda x: f"{x} - {SHOCK_NAMES[SHOCK_SYMBOLS == x].values[0]}",
         help="Search and select market shocks",
     )
-    duration = None
+    shock_duration = None
     return_changes = []
     volatility_changes = []
 
     if selected_shocks :
         duration = st.sidebar.number_input(
-            "Duration (days)", value=10, step=1, min_value=0
+            "Duration (days)", value=10, step=1, min_value=0, max_value=YEARLY_TRADING_DAYS
         )
 
     # Input for corresponding shock values (dynamic)
@@ -97,8 +97,7 @@ def main():
     for shock in selected_shocks:
         st.sidebar.write(f"{SHOCK_NAMES[SHOCK_SYMBOLS == shock].values[0]}:")
         # Input for corresponding market shock (dynamic)
-        col1, col2 = st.sidebar.columns(2)
-        shock_data = [0, 0]
+        col1, _ = st.sidebar.columns(2)
         # Add number inputs to each column
         with col1:
             magnitude = st.number_input(
@@ -108,13 +107,12 @@ def main():
             shock_values[shock] = magnitude
 
     for shock in shock_values :
-        shock_data = shock_values[shock]
-
-        magnitude = shock_data
+        magnitude = shock_values[shock]
 
         if shock == "EM" :
             return_changes.append(annualize_return(magnitude, duration))
             volatility_changes.append(annualize_std(FEAR_FACTOR*abs(magnitude), duration))
+
 
 
     # Sidebar Header
