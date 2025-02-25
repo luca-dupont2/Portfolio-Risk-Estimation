@@ -13,7 +13,7 @@ from typing import List, Tuple, Union
 if os.path.isfile(".env"):
     load_dotenv()
     FRED_API_KEY = os.getenv("FRED_API_KEY")
-else :
+else:
     FRED_API_KEY = None
 
 
@@ -37,22 +37,23 @@ def check_wifi_connection() -> bool:
         return False
 
 
-def check_api_key() -> bool :
+def check_api_key() -> bool:
     return os.path.isfile(".env")
+
 
 # def get_historical_data(
 #         tickers: Union[str, List[str]], period: str
 #     ) -> Optional[pd.DataFrame]:
 #         """
 #         Fetch historical stock data from Yahoo Finance with caching.
-# 
+#
 #         Args:
 #             tickers (Union[str, List[str]]): Ticker symbol(s) for the stock(s).
 #             period (str): Time period for the historical data (e.g., '1y', '2y').
-# 
-        # Returns:
+#
+# Returns:
 #             Optional[pd.DataFrame]: DataFrame containing the closing prices of the stock(s), or None if an error occurs.
-# 
+#
 #         Raises:
 #             ValueError: If no data is retrieved for the given tickers.
 #         """
@@ -64,6 +65,7 @@ def check_api_key() -> bool :
 #         except Exception as e:
 #             print(f"Error gathering stock data: {e}")
 #             return None
+
 
 def get_monthly_bank_rates_fred(years: int) -> pd.DataFrame:
     """
@@ -78,7 +80,7 @@ def get_monthly_bank_rates_fred(years: int) -> pd.DataFrame:
     Raises:
         ValueError: If the FRED API request fails.
     """
-    if not FRED_API_KEY :
+    if not FRED_API_KEY:
         raise ValueError("FRED API key not found")
 
     now = datetime.now()
@@ -100,106 +102,6 @@ def get_monthly_bank_rates_fred(years: int) -> pd.DataFrame:
         raise ValueError(
             f"Error loading FRED interest bank data status code {status_code}"
         )
-
-
-def get_log_returns(data: pd.DataFrame) -> pd.DataFrame:
-    """
-    Calculate log returns for a given DataFrame of stock prices.
-
-    Args:
-        data (pd.DataFrame): DataFrame containing stock prices.
-
-    Returns:
-        pd.DataFrame: DataFrame containing the log returns.
-    """
-    return np.log(data / data.shift(1)).dropna()
-
-
-def get_annualized_pct_returns(
-    log_returns: pd.DataFrame, period: Union[str, int, float]
-) -> np.ndarray:
-    """
-    Calculate annualized percentage returns using log returns.
-
-    Args:
-        log_returns (pd.DataFrame): DataFrame containing log returns.
-        period (Union[str, int, float]): Time period for annualization.
-
-    Returns:
-        np.ndarray: Array of annualized percentage returns.
-
-    Raises:
-        ValueError: If the period is invalid.
-    """
-    if isinstance(period, str) and period in PERIOD_MAP:
-        period = PERIOD_MAP[period]
-    elif not isinstance(period, (int, float)) or period <= 0:
-        raise ValueError(
-            f"Invalid period '{period}'. Must be positive or in {list(PERIOD_MAP.keys())}."
-        )
-
-    annualized_log_returns = log_returns.sum() * (1 / period)
-    return np.exp(annualized_log_returns) - 1
-
-
-def get_annualized_log_std(
-    log_returns: pd.DataFrame, period: Union[str, int, float]
-) -> np.ndarray:
-    """
-    Calculate annualized standard deviation using log returns.
-
-    Args:
-        log_returns (pd.DataFrame): DataFrame containing log returns.
-        period (Union[str, int, float]): Time period for annualization.
-
-    Returns:
-        np.ndarray: Array of annualized standard deviations.
-
-    Raises:
-        ValueError: If the period is invalid.
-    """
-    if isinstance(period, str) and period in PERIOD_MAP:
-        period = PERIOD_MAP[period]
-    elif not isinstance(period, (int, float)) or period <= 0:
-        raise ValueError(f"Invalid period '{period}'.")
-
-    return log_returns.std(ddof=0) * np.sqrt(252 / period)
-
-
-def log_std_to_pct_std(log_std: float) -> float:
-    """
-    Convert log standard deviation to percentage standard deviation.
-
-    Args:
-        log_std (float): Log standard deviation.
-
-    Returns:
-        float: Percentage standard deviation.
-    """
-    if np.any(log_std == 0):
-        return 0.0  # No volatility means no percentage std deviation
-    return np.sqrt(np.exp(log_std**2) - 1)
-
-
-def weighted_average(
-    values: Union[pd.Series, np.ndarray], weights: Union[pd.Series, np.ndarray]
-) -> float:
-    """
-    Calculate weighted average return for the portfolio.
-
-    Args:
-        values (Union[pd.Series, np.ndarray]): Values to average.
-        weights (Union[pd.Series, np.ndarray]): Weights for averaging.
-
-    Returns:
-        float: Weighted average.
-    """
-    if not isinstance(values, pd.Series):
-        return values
-
-    values, weights = np.array(values), np.array(weights)
-    weights = weights / sum(weights)
-    return np.average(values, weights=weights)
 
 
 def get_var(profits: np.ndarray, percentile: float) -> float:
@@ -246,6 +148,7 @@ def get_es(pre_var: np.ndarray) -> float:
     """
     return -np.mean(pre_var)
 
+
 def gbm(
     T: float,
     N: int,
@@ -268,7 +171,7 @@ def gbm(
     Returns:
         Tuple[np.ndarray, np.ndarray]: Time vector, and all simulated paths.
     """
-    if type(S0) != float :
+    if type(S0) != float:
         S0 = np.asarray(S0)[:, np.newaxis]
 
     dt = T / N
@@ -287,11 +190,14 @@ def gbm(
 
     return t, S_t
 
-def sample_values(values : np.ndarray, start : int, stop : int) -> np.ndarray :
+
+def sample_values(values: np.ndarray, start: int, stop: int) -> np.ndarray:
     return [st[start:stop] for st in values]
 
-def annualize_return(init_return : float, period : int) -> float :
-    return ((1 + init_return) ** (252/period)) - 1
 
-def annualize_std(init_std : float, period : int) -> float :
-    return init_std * np.sqrt(252/period).item()
+def annualize_return(init_return: float, period: int) -> float:
+    return ((1 + init_return) ** (252 / period)) - 1
+
+
+def annualize_std(init_std: float, period: int) -> float:
+    return init_std * np.sqrt(252 / period).item()
