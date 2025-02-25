@@ -141,17 +141,16 @@ def main():
         portfolio = Portfolio(selected_tickers, values, period)
 
         # Fetch and process historical data
-        historical_data = fetch_data(selected_tickers, period)
+        portfolio.get_historical_data()
 
-        log_returns = get_log_returns(historical_data)
-        annualized_pct_returns = get_annualized_pct_returns(log_returns, period)
+        portfolio.get_annualized_pct_returns()
 
-        annualized_log_stds = get_annualized_log_std(log_returns, period)
-        annualized_pct_stds = log_std_to_pct_std(annualized_log_stds)
+        portfolio.get_annualized_log_std()
+        portfolio.log_std_to_pct_std()
 
-        # Portfolio Statistics
-        portfolio_return = weighted_average(annualized_pct_returns, values)
-        portfolio_std = weighted_average(annualized_pct_stds, values)
+        portfolio.get_portfolio_attributes()
+
+        portfolio_return, portfolio_std = portfolio.portfolio_return, portfolio.portfolio_std
 
         if shock_values :
             # --- Monte Carlo Simulation --- #
@@ -160,7 +159,7 @@ def main():
                 shock_duration,
                 portfolio_return+sum(return_changes),
                 portfolio_std+sum(volatility_changes),
-                initial_portfolio_value,
+                portfolio.initial_portfolio_value,
                 N_SIMS,
             )
 
@@ -183,7 +182,7 @@ def main():
                 YEARLY_TRADING_DAYS,
                 portfolio_return,
                 portfolio_std,
-                initial_portfolio_value,
+                portfolio.initial_portfolio_value,
                 N_SIMS,
             )
 
@@ -203,7 +202,7 @@ def main():
         st.sidebar.subheader("Portfolio Statistics")
 
         st.sidebar.write(
-            f"Initial portfolio value: **${int(initial_portfolio_value):,}**"
+            f"Initial portfolio value: **${int(portfolio.initial_portfolio_value):,}**"
         )
         st.sidebar.write(f"Predicted Annual Return: **{portfolio_return:.2%}**")
         st.sidebar.write(f"Predicted Volatility: **{portfolio_std:.2%}**")
@@ -215,7 +214,7 @@ def main():
         fig, _ = plt.subplots(figsize=(10, 5))
         plt.plot(t, np.array(future_values[:RENDERED_SIMS]).T, alpha=0.3)  # Plot fewer lines
         plt.axhline(
-            y=initial_portfolio_value,
+            y=portfolio.initial_portfolio_value,
             color="purple",
             linestyle="dashed",
             label="Initial Value",
@@ -236,7 +235,7 @@ def main():
                 final_values_total, bins=30, color="black", alpha=0.7, edgecolor="black"
             )
             ax1.axvline(
-                x=initial_portfolio_value,
+                x=portfolio.initial_portfolio_value,
                 color="purple",
                 linestyle="dashed",
                 label="Initial Value",
