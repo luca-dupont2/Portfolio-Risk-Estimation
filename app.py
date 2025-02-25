@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from utils import *
 import pandas as pd
+from portfolio import Portfolio
 
 
 # TODO! IMPLEMENT MARKET SHOCKS, ANALYSE VS BASELINE, ANALYSE WHICH PART OF PORTFOLIO IS WEAK
@@ -15,11 +16,6 @@ RENDERED_SIMS = 500
 VAR_PERCENTILE = 5
 FEAR_FACTOR = 1
 IR_INDEX = 1
-
-
-@st.cache_data
-def fetch_data(tickers, period):
-    return get_historical_data(tickers, period)
 
 
 def main():
@@ -88,7 +84,7 @@ def main():
     volatility_changes = []
 
     if selected_shocks :
-        duration = st.sidebar.number_input(
+        shock_duration = st.sidebar.number_input(
             "Duration (days)", value=10, step=1, min_value=0, max_value=YEARLY_TRADING_DAYS
         )
 
@@ -110,8 +106,8 @@ def main():
         magnitude = shock_values[shock]
 
         if shock == "EM" :
-            return_changes.append(annualize_return(magnitude, duration))
-            volatility_changes.append(annualize_std(FEAR_FACTOR*abs(magnitude), duration))
+            return_changes.append(annualize_return(magnitude, shock_duration))
+            volatility_changes.append(annualize_std(FEAR_FACTOR*abs(magnitude), shock_duration))
 
 
 
@@ -141,7 +137,8 @@ def main():
             "Ensure the sample time horizon is valid (exceeding yearly trading days or invalid period)"
         )
     elif selected_tickers and values:
-        initial_portfolio_value = sum(values)
+
+        portfolio = Portfolio(selected_tickers, values, period)
 
         # Fetch and process historical data
         historical_data = fetch_data(selected_tickers, period)
@@ -159,8 +156,8 @@ def main():
         if shock_values :
             # --- Monte Carlo Simulation --- #
             shock_t, shock_future_values = gbm(
-                duration/YEARLY_TRADING_DAYS,
-                duration,
+                shock_duration/YEARLY_TRADING_DAYS,
+                shock_duration,
                 portfolio_return+sum(return_changes),
                 portfolio_std+sum(volatility_changes),
                 initial_portfolio_value,
@@ -170,15 +167,15 @@ def main():
             last_shock_values = [s[-1] for s in shock_future_values]
 
             t, future_values = gbm(
-                TIME_HORIZON - duration/YEARLY_TRADING_DAYS,
-                YEARLY_TRADING_DAYS-duration,
+                TIME_HORIZON - shock_duration/YEARLY_TRADING_DAYS,
+                YEARLY_TRADING_DAYS - shock_duration,
                 portfolio_return,
                 portfolio_std,
                 last_shock_values,
                 N_SIMS,
             )
             future_values = np.concat((shock_future_values, future_values), axis=1)
-            t += duration/YEARLY_TRADING_DAYS
+            t += shock_duration/YEARLY_TRADING_DAYS
             t = np.concat((shock_t, t))
         else :
             t, future_values = gbm(

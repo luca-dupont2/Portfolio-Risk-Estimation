@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from typing import Optional, List, Tuple, Union
+from typing import List, Tuple, Union
 
 # Load environment variables from .env file
 if os.path.isfile(".env"):
@@ -40,6 +40,30 @@ def check_wifi_connection() -> bool:
 def check_api_key() -> bool :
     return os.path.isfile(".env")
 
+# def get_historical_data(
+#         tickers: Union[str, List[str]], period: str
+#     ) -> Optional[pd.DataFrame]:
+#         """
+#         Fetch historical stock data from Yahoo Finance with caching.
+# 
+#         Args:
+#             tickers (Union[str, List[str]]): Ticker symbol(s) for the stock(s).
+#             period (str): Time period for the historical data (e.g., '1y', '2y').
+# 
+        # Returns:
+#             Optional[pd.DataFrame]: DataFrame containing the closing prices of the stock(s), or None if an error occurs.
+# 
+#         Raises:
+#             ValueError: If no data is retrieved for the given tickers.
+#         """
+#         try:
+#             data: pd.DataFrame = yf.download(tickers, period=period)["Close"]
+#             if data.empty:
+#                 raise ValueError(f"No data retrieved for tickers: {tickers}")
+#             return data
+#         except Exception as e:
+#             print(f"Error gathering stock data: {e}")
+#             return None
 
 def get_monthly_bank_rates_fred(years: int) -> pd.DataFrame:
     """
@@ -76,32 +100,6 @@ def get_monthly_bank_rates_fred(years: int) -> pd.DataFrame:
         raise ValueError(
             f"Error loading FRED interest bank data status code {status_code}"
         )
-
-
-def get_historical_data(
-    tickers: Union[str, List[str]], period: str
-) -> Optional[pd.DataFrame]:
-    """
-    Fetch historical stock data from Yahoo Finance with caching.
-
-    Args:
-        tickers (Union[str, List[str]]): Ticker symbol(s) for the stock(s).
-        period (str): Time period for the historical data (e.g., '1y', '2y').
-
-    Returns:
-        Optional[pd.DataFrame]: DataFrame containing the closing prices of the stock(s), or None if an error occurs.
-
-    Raises:
-        ValueError: If no data is retrieved for the given tickers.
-    """
-    try:
-        data: pd.DataFrame = yf.download(tickers, period=period)["Close"]
-        if data.empty:
-            raise ValueError(f"No data retrieved for tickers: {tickers}")
-        return data
-    except Exception as e:
-        print(f"Error gathering stock data: {e}")
-        return None
 
 
 def get_log_returns(data: pd.DataFrame) -> pd.DataFrame:
