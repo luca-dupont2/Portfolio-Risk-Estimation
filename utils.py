@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from typing import List, Tuple, Union
+from typing import List, Tuple
 
 # Load environment variables from .env file
 if os.path.isfile(".env"):
