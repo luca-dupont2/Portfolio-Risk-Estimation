@@ -85,7 +85,7 @@ def main():
     if selected_shocks:
         shock_duration = st.sidebar.number_input(
             "Duration (days)",
-            value=10,
+            value=21,
             step=1,
             min_value=0,
             max_value=YEARLY_TRADING_DAYS,
@@ -102,15 +102,6 @@ def main():
             magnitude = st.number_input("Magnitude (%)", value=0.1, step=0.01)
             magnitude /= 100
             shock_values[shock] = magnitude
-
-    for shock in shock_values:
-        magnitude = shock_values[shock]
-
-        if shock == "EM":
-            return_changes.append(annualize_return(magnitude, shock_duration))
-            volatility_changes.append(
-                annualize_std(FEAR_FACTOR * abs(magnitude), shock_duration)
-            )
 
     # Sidebar Header
     st.sidebar.subheader("Select Sample Time Horizon for metrics (VaR, CVaR)")
@@ -153,6 +144,19 @@ def main():
             portfolio.portfolio_return,
             portfolio.portfolio_std,
         )
+
+        for shock in shock_values:
+            magnitude = shock_values[shock]
+
+            if shock == "EM":
+                anualized_shock_return = annualize_return(magnitude, shock_duration)
+                annualized_shockstd = annualize_std(FEAR_FACTOR * abs(magnitude), shock_duration)
+
+                part = portfolio.get_equity_part(TICKERS)
+
+                return_changes.append(anualized_shock_return * part)
+                volatility_changes.append(annualized_shockstd * part)
+                
 
         if shock_values:
             # --- Monte Carlo Simulation --- #

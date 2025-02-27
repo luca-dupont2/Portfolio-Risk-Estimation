@@ -1,292 +1,292 @@
-Symbol,Contract Name
-YM=F,Mini Dow Jones Indus.
-NQ=F,Nasdaq 100
-CC=F,Cocoa
-ES=F,E-Mini S&P 500 Mar 25
-GC=F,Gold
-MGC=F,Micro Gold Futures
-RTY=F,E-mini Russell 2000 Index Future
-ZS=F,Soybean Futures
-PL=F,Platinum Apr 25
-PA=F,Palladium Mar 25
-KE=F,KC HRW Wheat Futures Mar-2025
-ZC=F,Corn Futures May-2025
-KC=F,Coffee May 25
-OJ=F,Orange Juice May 25
-LBS=F,Random Length Lumber Futures
-ZO=F,Oat Futures May-2025
-ZM=F,S&P Composite 1500 ESG Tilted I
-GF=F,WisdomTree International High D
-LE=F,Live Cattle Futures Apr-2025
-ZB=F,U.S. Treasury Bond Futures Mar-2025
-ZN=F,10-Year T-Note Futures Mar-2025
-ZF=F,Five-Year US Treasury Note Futures
-ZT=F,2-Year T-Note Futures Mar-2025
-HE=F,Lean Hogs Futures Apr-2025
-BZ=F,Brent Crude Oil Last Day Finance
-CL=F,Crude Oil Mar 25
-CT=F,Cotton May 25
-ZL=F,Soybean Oil Futures May-2025
-SIL=F,Micro Silver Futures Mar-2025
-SI=F,Silver Mar 25
-SB=F,Sugar #11 May 25
-ZR=F,Rough Rice Futures May-2025
-HG=F,Copper Mar 25
-NG=F,Natural Gas Mar 25
-HO=F,Heating Oil Mar 25
-RB=F,RBOB Gasoline Mar 25
-B0=F,Mont Belvieu LDH Propane (OPIS)
-ZN=F,10-Year T-Note Futures
-^TYX,Treasury Yield 30 Years
-^TNX,CBOE Interest Rate 10 Year T No
-^FVX,Treasury Yield 5 Years
-2YY=F,2-Year Yield Futures
-^IRX,13 WEEK TREASURY BILL
-IDR=X,USD/IDR
-EURHUF=X,EUR/HUF
-GBPJPY=X,GBP/JPY
-EURJPY=X,EUR/JPY
-JPY=X,USD/JPY
-RUB=X,USD/RUB
-INR=X,USD/INR
-PHP=X,USD/PHP
-THB=X,USD/THB
-MXN=X,USD/MXN
-ZAR=X,USD/ZAR
-EURSEK=X,EUR/SEK
-HKD=X,USD/HKD
-CNY=X,USD/CNY
-MYR=X,USD/MYR
-EURCAD=X,EUR/CAD
-SGD=X,USD/SGD
-GBPUSD=X,GBP/USD
-EURUSD=X,EUR/USD
-EURCHF=X,EUR/CHF
-EURGBP=X,EUR/GBP
-AUDUSD=X,AUD/USD
-NZDUSD=X,NZD/USD
-TSLA,Tesla Inc.
-AVGO,Broadcom Inc.
-AMZN,Amazon.com Inc.
-AAPL,Apple Inc.
-GOOG,Alphabet Inc.
-GOOGL,Alphabet Inc.
-NVDA,NVIDIA Corporation
-PLTR,Palantir Technologies Inc.
-BABA,Alibaba Group Holding Limited
-XOM,Exxon Mobil Corporation
-AMD,Advanced Micro Devices Inc.
-MU,Micron Technology Inc.
-MRK,Merck & Co. Inc.
-SCHW,The Charles Schwab Corporation
-WFC,Wells Fargo & Company
-UBER,Uber Technologies Inc.
-AFRM,Affirm Holdings Inc.
-NKE,NIKE Inc.
-TEM,Tempus AI Inc.
-KO,The Coca-Cola Company
-HOOD,Robinhood Markets Inc.
-BMY,Bristol-Myers Squibb Company
-SWTX,SpringWorks Therapeutics Inc.
-OKLO,Oklo Inc.
-ON,ON Semiconductor Corporation
-BAC,Bank of America Corporation
-HIMS,Hims & Hers Health Inc.
-SMCI,Super Micro Computer Inc.
-IONQ,IonQ Inc.
-NBIS,Nebius Group N.V.
-VZ,Verizon Communications Inc.
-PINS,Pinterest Inc.
-X,United States Steel Corporation
-SMTC,Semtech Corporation
-CMCSA,Comcast Corporation
-BP,BP p.l.c.
-ASTS,AST SpaceMobile Inc.
-RKLB,Rocket Lab USA Inc.
-SMR,NuScale Power Corporation
-KMI,Kinder Morgan Inc.
-PFE,Pfizer Inc.
-T,AT&T Inc.
-KVUE,Kenvue Inc.
-ET,Energy Transfer LP
-INTC,Intel Corporation
-MBLY,Mobileye Global Inc.
-GOLD,Barrick Gold Corporation
-MARA,MARA Holdings Inc.
-HBAN,Huntington Bancshares Incorporated
-XPEV,XPeng Inc.
-AAL,American Airlines Group Inc.
-PCG,PG&E Corporation
-SOUN,SoundHound AI Inc.
-CVE,Cenovus Energy Inc.
-SOFI,SoFi Technologies Inc.
-LYFT,Lyft Inc.
-BCS,Barclays PLC
-NU,Nu Holdings Ltd.
-TDOC,Teladoc Health Inc.
-RIVN,Rivian Automotive Inc.
-YMM,Full Truck Alliance Co. Ltd.
-RGTI,Rigetti Computing Inc.
-KGC,Kinross Gold Corporation
-CLF,Cleveland-Cliffs Inc.
-RIOT,Riot Platforms Inc.
-CLSK,CleanSpark Inc.
-PSLV,Sprott Physical Silver Trust
-SNAP,Snap Inc.
-VNET,VNET Group Inc.
-ACHR,Archer Aviation Inc.
-AGNC,AGNC Investment Corp.
-AMCR,Amcor plc
-WBD,Warner Bros. Discovery Inc.
-VALE,Vale S.A.
-F,Ford Motor Company
-BBAI,BigBear.ai Holdings Inc.
-PTON,Peloton Interactive Inc.
-JOBY,Joby Aviation Inc.
-RXRX,Recursion Pharmaceuticals Inc.
-UAA,Under Armour Inc.
-CDE,Coeur Mining Inc.
-NWL,Newell Brands Inc.
-JBLU,JetBlue Airways Corporation
-IAG,IAMGOLD Corporation
-HL,Hecla Mining Company
-ITUB,Itaú Unibanco Holding S.A.
-BB,BlackBerry Limited
-VRN,Veren Inc.
-GRAB,Grab Holdings Limited
-NIO,NIO Inc.
-RIG,Transocean Ltd.
-NGD,New Gold Inc.
-GGB,Gerdau S.A.
-LCID,Lucid Group Inc.
-BTG,B2Gold Corp.
-BTE,Baytex Energy Corp.
-IQ,iQIYI Inc.
-BBD,Banco Bradesco S.A.
-ABEV,Ambev S.A.
-GSAT,Globalstar Inc. Common Stock
-SPY,SPDR S&P 500 ETF Trust
-QQQ,Invesco QQQ Trust
-GLD,SPDR Gold Shares
-IWM,iShares Russell 2000 ETF
-RSP,Invesco S&P 500 Equal Weight ETF
-XLV,The Health Care Select Sector SPDR Fund
-XLI,The Industrial Select Sector SPDR Fund
-SHV,iShares Short Treasury Bond ETF
-LQD,iShares iBoxx $ Investment Grade Corporate Bond ETF
-SGOV,iShares 0-3 Month Treasury Bond ETF
-AGG,iShares Core U.S. Aggregate Bond ETF
-UPRO,ProShares UltraPro S&P500
-MBB,iShares MBS ETF
-BIL,SPDR Bloomberg 1-3 Month T-Bill ETF
-XLE,The Energy Select Sector SPDR Fund
-XBI,SPDR S&P Biotech ETF
-TLT,iShares 20+ Year Treasury Bond ETF
-TQQQ,ProShares UltraPro QQQ
-VONV,Vanguard Russell 1000 Value Index Fund ETF Shares
-VCIT,Vanguard Intermediate-Term Corporate Bond Index Fund ETF Shares
-EFA,iShares MSCI EAFE ETF
-XLP,The Consumer Staples Select Sector SPDR Fund
-HYG,iShares iBoxx $ High Yield Corporate Bond ETF
-XLU,The Utilities Select Sector SPDR Fund
-IEFA,iShares Core MSCI EAFE ETF
-BND,Vanguard Total Bond Market Index Fund
-SPLG,SPDR Portfolio S&P 500 ETF
-IJH,iShares Core S&P Mid-Cap ETF
-KRE,SPDR S&P Regional Banking ETF
-XME,SPDR S&P Metals and Mining ETF
-NVDL,GraniteShares 2x Long NVDA Daily ETF
-IBIT,iShares Bitcoin Trust
-IAU,iShares Gold Trust
-IEMG,iShares Core MSCI Emerging Markets ETF
-IGF,iShares Global Infrastructure ETF
-BITX,2x Bitcoin Strategy ETF
-GDXJ,VanEck Junior Gold Miners ETF
-XLF,The Financial Select Sector SPDR Fund
-JAAA,Janus Henderson AAA CLO ETF
-VEA,Vanguard FTSE Developed Markets Index Fund ETF Shares
-JPST,JPMorgan Ultra-Short Income ETF
-PULS,PGIM Ultra Short Bond ETF
-VTIP,Vanguard Short-Term Inflation-Protected Securities Index Fund ETF Shares
-VWO,Vanguard Emerging Markets Stock Index Fund
-TNA,Direxion Daily Small Cap Bull 3X Shares
-EEM,iShares MSCI Emerging Markets ETF
-MSTX,Defiance Daily Target 2X Long MSTR ETF
-GDX,VanEck Gold Miners ETF
-SRLN,SPDR Blackstone Senior Loan ETF
-USHY,iShares Broad USD High Yield Corporate Bond ETF
-YINN,Direxion Daily FTSE China Bull 3X Shares
-FXI,iShares China Large-Cap ETF
-KWEB,KraneShares CSI China Internet ETF
-TSLQ,Tradr 2X Short TSLA Daily ETF
-KOLD,ProShares UltraShort Bloomberg Natural Gas
-SLV,iShares Silver Trust
-SCHG,Schwab U.S. Large-Cap Growth ETF
-UVIX,2x Long VIX Futures ETF
-SQQQ,ProShares UltraPro Short QQQ
-SGOL,abrdn Physical Gold Shares ETF
-SCHD,Schwab U.S. Dividend Equity ETF
-SOXL,Direxion Daily Semiconductor Bull 3X Shares
-MSTY,Yieldmax MSTR Option Income Strategy ETF
-ASHR,Xtrackers Harvest CSI 300 China A-Shares ETF
-NVD,Graniteshares 2x Short NVDA Daily ETF
-EWZ,iShares MSCI Brazil ETF
-SCHX,Schwab U.S. Large-Cap ETF
-BITO,ProShares Bitcoin ETF
-GOVT,iShares U.S. Treasury Bond ETF
-SCHH,Schwab U.S. REIT ETF
-BKLN,Invesco Senior Loan ETF
-SPXU,ProShares UltraPro Short S&P500
-ETHA,iShares Ethereum Trust ETF
-SOXS,Direxion Daily Semiconductor Bear 3X Shares
-TSLL,Direxion Daily TSLA Bull 2X Shares
-SCHF,Schwab International Equity ETF
-SDS,ProShares UltraShort S&P500
-UVXY,ProShares Ultra VIX Short-Term Futures ETF
-RWM,ProShares Short Russell2000
-UNG,United States Natural Gas Fund LP
-MSTZ,T-Rex 2X Inverse MSTR Daily Target ETF
-PLTD,Direxion Daily PLTR Bear 1X Shares
-PDBC,Invesco Optimum Yield Diversified Commodity Strategy No K-1 ETF
-NVDX,T-Rex 2X Long NVIDIA Daily Target ETF
-CONY,YieldMax COIN Option Income Strategy ETF
-TZA,Direxion Daily Small Cap Bear 3X Shares
-FNGD,MicroSectors FANG+ Index -3X Inverse Leveraged ETN
-DRIP,Direxion Daily S&P Oil & Gas Exp. & Prod. Bear 2X Shares
-MSTU,T-Rex 2X Long MSTR Daily Target ETF
-TSLS,Direxion Daily TSLA Bear 1X Shares
-LABD,Direxion Daily S&P Biotech Bear 3X Shares
-AMDL,GraniteShares 2x Long AMD Daily ETF
-NVDD,Direxion Daily NVDA Bear 1X Shares
-SPXS,Direxion Daily S&P 500 Bear 3X Shares
-FAZ,Direxion Daily Financial Bear 3X Shares
-SMST,Defiance Daily Target 2X Short MSTR ETF
-ETHU,Volatility Shares Trust - 2x Ether ETF
-MSOS,AdvisorShares Pure US Cannabis ETF
-TSLZ,T-Rex 2X Inverse Tesla Daily Target ETF
-NVDQ,T-Rex 2X Inverse NVIDIA Daily Target ETF
-BTC-USD,Bitcoin USD
-WBTC-USD,Wrapped Bitcoin USD
-WSTETH-USD,Lido wstETH USD
-ETH-USD,Ethereum USD
-STETH-USD,Lido Staked ETH USD
-WETH-USD,WETH USD
-BNB-USD,BNB USD
-SOL-USD,Solana USD
-LTC-USD,Litecoin USD
-AVAX-USD,Avalanche USD
-LINK-USD,Chainlink USD
-LEO-USD,UNUS SED LEO USD
-TON11419-USD,Toncoin USD
-SUI20947-USD,Sui USD
-XRP-USD,XRP USD
-USDS33039-USD,USDS USD
-USDT-USD,Tether USDt USD
-USDC-USD,USD Coin USD
-ADA-USD,Cardano USD
-XLM-USD,Stellar USD
-DOGE-USD,Dogecoin USD
-TRX-USD,TRON USD
-WTRX-USD,Wrapped TRON USD
-HBAR-USD,Hedera USD
-SHIB-USD,Shiba Inu USD
+Symbol,Contract Name,Contract Type
+YM=F,Mini Dow Jones Indus.,Commodity
+NQ=F,Nasdaq 100,Commodity
+CC=F,Cocoa,Commodity
+ES=F,E-Mini S&P 500 Mar 25,Commodity
+GC=F,Gold,Commodity
+MGC=F,Micro Gold Futures,Commodity
+RTY=F,E-mini Russell 2000 Index Future,Commodity
+ZS=F,Soybean Futures,Commodity
+PL=F,Platinum Apr 25,Commodity
+PA=F,Palladium Mar 25,Commodity
+KE=F,KC HRW Wheat Futures Mar-2025,Commodity
+ZC=F,Corn Futures May-2025,Commodity
+KC=F,Coffee May 25,Commodity
+OJ=F,Orange Juice May 25,Commodity
+LBS=F,Random Length Lumber Futures,Commodity
+ZO=F,Oat Futures May-2025,Commodity
+ZM=F,S&P Composite 1500 ESG Tilted I,Commodity
+GF=F,WisdomTree International High D,Commodity
+LE=F,Live Cattle Futures Apr-2025,Commodity
+ZB=F,U.S. Treasury Bond Futures Mar-2025,Commodity
+ZN=F,10-Year T-Note Futures Mar-2025,Commodity
+ZF=F,Five-Year US Treasury Note Futures,Commodity
+ZT=F,2-Year T-Note Futures Mar-2025,Commodity
+HE=F,Lean Hogs Futures Apr-2025,Commodity
+BZ=F,Brent Crude Oil Last Day Finance,Commodity
+CL=F,Crude Oil Mar 25,Commodity
+CT=F,Cotton May 25,Commodity
+ZL=F,Soybean Oil Futures May-2025,Commodity
+SIL=F,Micro Silver Futures Mar-2025,Commodity
+SI=F,Silver Mar 25,Commodity
+SB=F,Sugar #11 May 25,Commodity
+ZR=F,Rough Rice Futures May-2025,Commodity
+HG=F,Copper Mar 25,Commodity
+NG=F,Natural Gas Mar 25,Commodity
+HO=F,Heating Oil Mar 25,Commodity
+RB=F,RBOB Gasoline Mar 25,Commodity
+B0=F,Mont Belvieu LDH Propane (OPIS),Commodity
+ZN=F,10-Year T-Note Futures,Commodity
+^TYX,Treasury Yield 30 Years,Commodity
+^TNX,CBOE Interest Rate 10 Year T No,Commodity
+^FVX,Treasury Yield 5 Years,Commodity
+2YY=F,2-Year Yield Futures,Commodity
+^IRX,13 WEEK TREASURY BILL,Commodity
+IDR=X,USD/IDR,Forex
+EURHUF=X,EUR/HUF,Forex
+GBPJPY=X,GBP/JPY,Forex
+EURJPY=X,EUR/JPY,Forex
+JPY=X,USD/JPY,Forex
+RUB=X,USD/RUB,Forex
+INR=X,USD/INR,Forex
+PHP=X,USD/PHP,Forex
+THB=X,USD/THB,Forex
+MXN=X,USD/MXN,Forex
+ZAR=X,USD/ZAR,Forex
+EURSEK=X,EUR/SEK,Forex
+HKD=X,USD/HKD,Forex
+CNY=X,USD/CNY,Forex
+MYR=X,USD/MYR,Forex
+EURCAD=X,EUR/CAD,Forex
+SGD=X,USD/SGD,Forex
+GBPUSD=X,GBP/USD,Forex
+EURUSD=X,EUR/USD,Forex
+EURCHF=X,EUR/CHF,Forex
+EURGBP=X,EUR/GBP,Forex
+AUDUSD=X,AUD/USD,Forex
+NZDUSD=X,NZD/USD,Forex
+TSLA,Tesla Inc.,Equity
+AVGO,Broadcom Inc.,Equity
+AMZN,Amazon.com Inc.,Equity
+AAPL,Apple Inc.,Equity
+GOOG,Alphabet Inc.,Equity
+GOOGL,Alphabet Inc.,Equity
+NVDA,NVIDIA Corporation,Equity
+PLTR,Palantir Technologies Inc.,Equity
+BABA,Alibaba Group Holding Limited,Equity
+XOM,Exxon Mobil Corporation,Equity
+AMD,Advanced Micro Devices Inc.,Equity
+MU,Micron Technology Inc.,Equity
+MRK,Merck & Co. Inc.,Equity
+SCHW,The Charles Schwab Corporation,Equity
+WFC,Wells Fargo & Company,Equity
+UBER,Uber Technologies Inc.,Equity
+AFRM,Affirm Holdings Inc.,Equity
+NKE,NIKE Inc.,Equity
+TEM,Tempus AI Inc.,Equity
+KO,The Coca-Cola Company,Equity
+HOOD,Robinhood Markets Inc.,Equity
+BMY,Bristol-Myers Squibb Company,Equity
+SWTX,SpringWorks Therapeutics Inc.,Equity
+OKLO,Oklo Inc.,Equity
+ON,ON Semiconductor Corporation,Equity
+BAC,Bank of America Corporation,Equity
+HIMS,Hims & Hers Health Inc.,Equity
+SMCI,Super Micro Computer Inc.,Equity
+IONQ,IonQ Inc.,Equity
+NBIS,Nebius Group N.V.,Equity
+VZ,Verizon Communications Inc.,Equity
+PINS,Pinterest Inc.,Equity
+X,United States Steel Corporation,Equity
+SMTC,Semtech Corporation,Equity
+CMCSA,Comcast Corporation,Equity
+BP,BP p.l.c.,Equity
+ASTS,AST SpaceMobile Inc.,Equity
+RKLB,Rocket Lab USA Inc.,Equity
+SMR,NuScale Power Corporation,Equity
+KMI,Kinder Morgan Inc.,Equity
+PFE,Pfizer Inc.,Equity
+T,AT&T Inc.,Equity
+KVUE,Kenvue Inc.,Equity
+ET,Energy Transfer LP,Equity
+INTC,Intel Corporation,Equity
+MBLY,Mobileye Global Inc.,Equity
+GOLD,Barrick Gold Corporation,Equity
+MARA,MARA Holdings Inc.,Equity
+HBAN,Huntington Bancshares Incorporated,Equity
+XPEV,XPeng Inc.,Equity
+AAL,American Airlines Group Inc.,Equity
+PCG,PG&E Corporation,Equity
+SOUN,SoundHound AI Inc.,Equity
+CVE,Cenovus Energy Inc.,Equity
+SOFI,SoFi Technologies Inc.,Equity
+LYFT,Lyft Inc.,Equity
+BCS,Barclays PLC,Equity
+NU,Nu Holdings Ltd.,Equity
+TDOC,Teladoc Health Inc.,Equity
+RIVN,Rivian Automotive Inc.,Equity
+YMM,Full Truck Alliance Co. Ltd.,Equity
+RGTI,Rigetti Computing Inc.,Equity
+KGC,Kinross Gold Corporation,Equity
+CLF,Cleveland-Cliffs Inc.,Equity
+RIOT,Riot Platforms Inc.,Equity
+CLSK,CleanSpark Inc.,Equity
+PSLV,Sprott Physical Silver Trust,Equity
+SNAP,Snap Inc.,Equity
+VNET,VNET Group Inc.,Equity
+ACHR,Archer Aviation Inc.,Equity
+AGNC,AGNC Investment Corp.,Equity
+AMCR,Amcor plc,Equity
+WBD,Warner Bros. Discovery Inc.,Equity
+VALE,Vale S.A.,Equity
+F,Ford Motor Company,Equity
+BBAI,BigBear.ai Holdings Inc.,Equity
+PTON,Peloton Interactive Inc.,Equity
+JOBY,Joby Aviation Inc.,Equity
+RXRX,Recursion Pharmaceuticals Inc.,Equity
+UAA,Under Armour Inc.,Equity
+CDE,Coeur Mining Inc.,Equity
+NWL,Newell Brands Inc.,Equity
+JBLU,JetBlue Airways Corporation,Equity
+IAG,IAMGOLD Corporation,Equity
+HL,Hecla Mining Company,Equity
+ITUB,Itaú Unibanco Holding S.A.,Equity
+BB,BlackBerry Limited,Equity
+VRN,Veren Inc.,Equity
+GRAB,Grab Holdings Limited,Equity
+NIO,NIO Inc.,Equity
+RIG,Transocean Ltd.,Equity
+NGD,New Gold Inc.,Equity
+GGB,Gerdau S.A.,Equity
+LCID,Lucid Group Inc.,Equity
+BTG,B2Gold Corp.,Equity
+BTE,Baytex Energy Corp.,Equity
+IQ,iQIYI Inc.,Equity
+BBD,Banco Bradesco S.A.,Equity
+ABEV,Ambev S.A.,Equity
+GSAT,Globalstar Inc. Common Stock,Equity
+SPY,SPDR S&P 500 ETF Trust,ETF
+QQQ,Invesco QQQ Trust,ETF
+GLD,SPDR Gold Shares,ETF
+IWM,iShares Russell 2000 ETF,ETF
+RSP,Invesco S&P 500 Equal Weight ETF,ETF
+XLV,The Health Care Select Sector SPDR Fund,ETF
+XLI,The Industrial Select Sector SPDR Fund,ETF
+SHV,iShares Short Treasury Bond ETF,ETF
+LQD,iShares iBoxx $ Investment Grade Corporate Bond ETF,ETF
+SGOV,iShares 0-3 Month Treasury Bond ETF,ETF
+AGG,iShares Core U.S. Aggregate Bond ETF,ETF
+UPRO,ProShares UltraPro S&P500,ETF
+MBB,iShares MBS ETF,ETF
+BIL,SPDR Bloomberg 1-3 Month T-Bill ETF,ETF
+XLE,The Energy Select Sector SPDR Fund,ETF
+XBI,SPDR S&P Biotech ETF,ETF
+TLT,iShares 20+ Year Treasury Bond ETF,ETF
+TQQQ,ProShares UltraPro QQQ,ETF
+VONV,Vanguard Russell 1000 Value Index Fund ETF Shares,ETF
+VCIT,Vanguard Intermediate-Term Corporate Bond Index Fund ETF Shares,ETF
+EFA,iShares MSCI EAFE ETF,ETF
+XLP,The Consumer Staples Select Sector SPDR Fund,ETF
+HYG,iShares iBoxx $ High Yield Corporate Bond ETF,ETF
+XLU,The Utilities Select Sector SPDR Fund,ETF
+IEFA,iShares Core MSCI EAFE ETF,ETF
+BND,Vanguard Total Bond Market Index Fund,ETF
+SPLG,SPDR Portfolio S&P 500 ETF,ETF
+IJH,iShares Core S&P Mid-Cap ETF,ETF
+KRE,SPDR S&P Regional Banking ETF,ETF
+XME,SPDR S&P Metals and Mining ETF,ETF
+NVDL,GraniteShares 2x Long NVDA Daily ETF,ETF
+IBIT,iShares Bitcoin Trust,ETF
+IAU,iShares Gold Trust,ETF
+IEMG,iShares Core MSCI Emerging Markets ETF,ETF
+IGF,iShares Global Infrastructure ETF,ETF
+BITX,2x Bitcoin Strategy ETF,ETF
+GDXJ,VanEck Junior Gold Miners ETF,ETF
+XLF,The Financial Select Sector SPDR Fund,ETF
+JAAA,Janus Henderson AAA CLO ETF,ETF
+VEA,Vanguard FTSE Developed Markets Index Fund ETF Shares,ETF
+JPST,JPMorgan Ultra-Short Income ETF,ETF
+PULS,PGIM Ultra Short Bond ETF,ETF
+VTIP,Vanguard Short-Term Inflation-Protected Securities Index Fund ETF Shares,ETF
+VWO,Vanguard Emerging Markets Stock Index Fund,ETF
+TNA,Direxion Daily Small Cap Bull 3X Shares,ETF
+EEM,iShares MSCI Emerging Markets ETF,ETF
+MSTX,Defiance Daily Target 2X Long MSTR ETF,ETF
+GDX,VanEck Gold Miners ETF,ETF
+SRLN,SPDR Blackstone Senior Loan ETF,ETF
+USHY,iShares Broad USD High Yield Corporate Bond ETF,ETF
+YINN,Direxion Daily FTSE China Bull 3X Shares,ETF
+FXI,iShares China Large-Cap ETF,ETF
+KWEB,KraneShares CSI China Internet ETF,ETF
+TSLQ,Tradr 2X Short TSLA Daily ETF,ETF
+KOLD,ProShares UltraShort Bloomberg Natural Gas,ETF
+SLV,iShares Silver Trust,ETF
+SCHG,Schwab U.S. Large-Cap Growth ETF,ETF
+UVIX,2x Long VIX Futures ETF,ETF
+SQQQ,ProShares UltraPro Short QQQ,ETF
+SGOL,abrdn Physical Gold Shares ETF,ETF
+SCHD,Schwab U.S. Dividend Equity ETF,ETF
+SOXL,Direxion Daily Semiconductor Bull 3X Shares,ETF
+MSTY,Yieldmax MSTR Option Income Strategy ETF,ETF
+ASHR,Xtrackers Harvest CSI 300 China A-Shares ETF,ETF
+NVD,Graniteshares 2x Short NVDA Daily ETF,ETF
+EWZ,iShares MSCI Brazil ETF,ETF
+SCHX,Schwab U.S. Large-Cap ETF,ETF
+BITO,ProShares Bitcoin ETF,ETF
+GOVT,iShares U.S. Treasury Bond ETF,ETF
+SCHH,Schwab U.S. REIT ETF,ETF
+BKLN,Invesco Senior Loan ETF,ETF
+SPXU,ProShares UltraPro Short S&P500,ETF
+ETHA,iShares Ethereum Trust ETF,ETF
+SOXS,Direxion Daily Semiconductor Bear 3X Shares,ETF
+TSLL,Direxion Daily TSLA Bull 2X Shares,ETF
+SCHF,Schwab International Equity ETF,ETF
+SDS,ProShares UltraShort S&P500,ETF
+UVXY,ProShares Ultra VIX Short-Term Futures ETF,ETF
+RWM,ProShares Short Russell2000,ETF
+UNG,United States Natural Gas Fund LP,ETF
+MSTZ,T-Rex 2X Inverse MSTR Daily Target ETF,ETF
+PLTD,Direxion Daily PLTR Bear 1X Shares,ETF
+PDBC,Invesco Optimum Yield Diversified Commodity Strategy No K-1 ETF,ETF
+NVDX,T-Rex 2X Long NVIDIA Daily Target ETF,ETF
+CONY,YieldMax COIN Option Income Strategy ETF,ETF
+TZA,Direxion Daily Small Cap Bear 3X Shares,ETF
+FNGD,MicroSectors FANG+ Index -3X Inverse Leveraged ETN,ETF
+DRIP,Direxion Daily S&P Oil & Gas Exp. & Prod. Bear 2X Shares,ETF
+MSTU,T-Rex 2X Long MSTR Daily Target ETF,ETF
+TSLS,Direxion Daily TSLA Bear 1X Shares,ETF
+LABD,Direxion Daily S&P Biotech Bear 3X Shares,ETF
+AMDL,GraniteShares 2x Long AMD Daily ETF,ETF
+NVDD,Direxion Daily NVDA Bear 1X Shares,ETF
+SPXS,Direxion Daily S&P 500 Bear 3X Shares,ETF
+FAZ,Direxion Daily Financial Bear 3X Shares,ETF
+SMST,Defiance Daily Target 2X Short MSTR ETF,ETF
+ETHU,Volatility Shares Trust - 2x Ether ETF,ETF
+MSOS,AdvisorShares Pure US Cannabis ETF,ETF
+TSLZ,T-Rex 2X Inverse Tesla Daily Target ETF,ETF
+NVDQ,T-Rex 2X Inverse NVIDIA Daily Target ETF,ETF
+BTC-USD,Bitcoin USD,Crypto
+WBTC-USD,Wrapped Bitcoin USD,Crypto
+WSTETH-USD,Lido wstETH USD,Crypto
+ETH-USD,Ethereum USD,Crypto
+STETH-USD,Lido Staked ETH USD,Crypto
+WETH-USD,WETH USD,Crypto
+BNB-USD,BNB USD,Crypto
+SOL-USD,Solana USD,Crypto
+LTC-USD,Litecoin USD,Crypto
+AVAX-USD,Avalanche USD,Crypto
+LINK-USD,Chainlink USD,Crypto
+LEO-USD,UNUS SED LEO USD,Crypto
+TON11419-USD,Toncoin USD,Crypto
+SUI20947-USD,Sui USD,Crypto
+XRP-USD,XRP USD,Crypto
+USDS33039-USD,USDS USD,Crypto
+USDT-USD,Tether USDt USD,Crypto
+USDC-USD,USD Coin USD,Crypto
+ADA-USD,Cardano USD,Crypto
+XLM-USD,Stellar USD,Crypto
+DOGE-USD,Dogecoin USD,Crypto
+TRX-USD,TRON USD,Crypto
+WTRX-USD,Wrapped TRON USD,Crypto
+HBAR-USD,Hedera USD,Crypto
+SHIB-USD,Shiba Inu USD,Crypto

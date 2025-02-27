@@ -108,3 +108,25 @@ class Portfolio :
         """
         self.portfolio_return = np.average(self.annualized_pct_returns, weights=self.values)
         self.portfolio_std = np.average(self.annualized_pct_stds, weights=self.values)
+
+    def get_equity_part(self, ticker_df : pd.DataFrame):
+        """
+        Calculate the equity part of the portfolio.
+
+        Args:
+            ticker_df (pd.DataFrame): DataFrame containing the tickers and contract types.
+
+        Returns:
+            float: Equity part of the portfolio.
+        """
+
+        equity_part = 0
+
+        contract_types = ticker_df.loc[ticker_df["Symbol"].isin(self.tickers), ["Symbol", "Contract Type"]]
+
+        for ticker in self.tickers:
+            contract_type = contract_types.loc[contract_types["Symbol"] == ticker, "Contract Type"].values[0]
+            if contract_type == "Equity" :
+                equity_part += self.values[self.tickers.index(ticker)]
+
+        return equity_part / self.initial_portfolio_value
