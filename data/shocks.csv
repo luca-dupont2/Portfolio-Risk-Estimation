@@ -1,7 +1,7 @@
 Symbol,Contract Name
-EM,Equity Market
-IR,Interest rate
-CS,Credit Spread
+,Equity Market
+,Interest rate
+,Credit Spread
 CL=F,Crude Oil
 GC=F,Gold
 NG=F,Natural Gas

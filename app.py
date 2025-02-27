@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from utils import *
 import pandas as pd
 from portfolio import Portfolio
+from math import isnan
 
 
 # TODO! IMPLEMENT MARKET SHOCKS, ANALYSE VS BASELINE, ANALYSE WHICH PART OF PORTFOLIO IS WEAK
@@ -32,6 +33,14 @@ def main():
 
     TICKER_SYMBOLS, TICKER_NAMES = TICKERS["Symbol"], TICKERS["Contract Name"]
     SHOCK_SYMBOLS, SHOCK_NAMES = SHOCKS["Symbol"], SHOCKS["Contract Name"]
+
+    def shock_formatter(name) -> str:
+        symbol = SHOCK_SYMBOLS[SHOCK_NAMES == name].values[0]
+
+        if type(symbol) == float and isnan(symbol):
+            return name
+        else :
+            return f"{symbol} - {name}"
 
     # ---------------- Streamlit UI ---------------- #
     st.title("Portfolio Risk Estimation")
@@ -71,13 +80,15 @@ def main():
     # Convert user inputs
     values = list(ticker_values.values())
 
+
     # Searchable Shock Selection
     selected_shocks = st.sidebar.multiselect(
         "Select Market Shocks:",
-        options=SHOCK_SYMBOLS,
-        format_func=lambda x: f"{x} - {SHOCK_NAMES[SHOCK_SYMBOLS == x].values[0]}",
+        options=SHOCK_NAMES,
+        format_func=shock_formatter,
         help="Search and select market shocks",
     )
+
     shock_duration = None
     return_changes = []
     volatility_changes = []
