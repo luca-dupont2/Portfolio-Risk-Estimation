@@ -135,9 +135,6 @@ def main():
         # Fetch and process historical data
         portfolio.get_historical_data()
 
-        portfolio.get_annualized_pct_returns()
-        portfolio.get_annualized_pct_stds()
-
         portfolio.get_portfolio_attributes()
 
         portfolio_return, portfolio_std = (

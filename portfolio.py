@@ -106,6 +106,10 @@ class Portfolio :
         Returns:
             Tuple[float, float]: Portfolio return and standard deviation.
         """
+
+        self.get_annualized_pct_returns()
+        self.get_annualized_pct_stds()
+
         self.portfolio_return = np.average(self.annualized_pct_returns, weights=self.values)
         self.portfolio_std = np.average(self.annualized_pct_stds, weights=self.values)
 
